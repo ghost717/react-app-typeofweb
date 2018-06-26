@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Pierwszy komponent w React.js</title>
+    <title>React App</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css">
 
@@ -16,53 +16,61 @@
     <div id="app"></div>
         
     <script type="text/babel">
-        function App({title = "Modal", content}){
-            return(
-                <div>
-                    <Header />
-                    <main className="ui main text container">
-                        <ContactList />
-                    </main>
-                </div>
-            );
+        class App extends React.Component{
+            render(){
+                //const { title = "Modal", content } = this.props;
+
+                return(
+                    <div>
+                        <Header />
+                        <main className="ui main text container">
+                            <ContactList />
+                        </main>
+                    </div>
+                );
+            }
         }
 
-        function Header(){
-            return(
-                <header class="ui menu">
-                    <nav class="ui container">
-                        <a href="#" class="header item">
-                        <img class="logo" src="https://typeofweb.com/wp-content/uploads/2017/08/cropped-typeofweb_logo-04-white-smaller-1-e1504359870362.png" />
-                        Lista kontaktów
-                        </a>
-                        <div class="header item">
-                            <button class="ui button">Dodaj</button>
-                        </div>
-                    </nav>
-                </header>
-            )
+        class Header extends React.Component{
+            render(){
+                return(
+                    <header className="ui menu">
+                        <nav className="ui container">
+                            <a href="#" className="header item">
+                            <img className="logo" src="https://typeofweb.com/wp-content/uploads/2017/08/cropped-typeofweb_logo-04-white-smaller-1-e1504359870362.png" />
+                            Lista kontaktów
+                            </a>
+                            <div className="header item">
+                                <button className="ui button">Dodaj</button>
+                            </div>
+                        </nav>
+                    </header>
+                );
+            }
         }
 
-        function ContactList(){
-            return (
-                <ul className="ui relaxed divided list selection">
-                    <ContactItem
-                        login="typeofweb1"
-                        name="Lena"
-                        deparment="Javascript Dev"
-                    />
-                    <ContactItem
-                        login="typeofweb2"
-                        name="Brian"
-                        deparment="HR"
-                    />
-                    <ContactItem
-                        login="typeofweb3"
-                        name="Rich"
-                        deparment="QA"
-                    />
-                </ul>
-            )
+        class ContactList extends React.Component{
+            render(){
+                return (
+                    <ul className="ui relaxed divided list selection">
+                        <ContactItem
+                            login="typeofweb1"
+                            name="Lena"
+                            deparment="Javascript Dev"
+                        />
+                        <ContactItem
+                            login="typeofweb2"
+                            name="Brian"
+                            deparment="HR"
+                        />
+                        <ContactItem
+                            login="typeofweb3"
+                            name="Rich"
+                            deparment="QA"
+                        />
+                    </ul>
+                );
+            }
         }
         
         class ContactItem extends React.Component{
